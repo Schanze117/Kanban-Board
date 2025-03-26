@@ -17,7 +17,7 @@ console.log(authHeader);
     const token = authHeader.split(' ')[1];
 
     //get secret key from env
-    const secretKey = process.env.JWT_SECRET_Key || ''
+    const secretKey = process.env.JWT_SECRET_KEY || ''
 
 
     // verify the token
