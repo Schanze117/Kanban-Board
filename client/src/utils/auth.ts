@@ -1,6 +1,9 @@
+import { jwtDecode, JwtPayload } from "jwt-decode";
+
 class AuthService {
   getProfile() {
     // TODO: return the decoded token
+    return jwtDecode<JwtPayload>(this.getToken()) as JwtPayload;
   }
 
   loggedIn() {
@@ -11,18 +14,21 @@ class AuthService {
   
   isTokenExpired(token: string)  {
     // TODO: return a value that indicates if the token is expired
-    if (!token) {
+    try {
+      const decoded = jwtDecode<JwtPayload>(token);
+      if (decoded.exp && decoded.exp < Date.now() / 1000) {
+        return true;
+      }
+      return false;
+    } catch (err) {
       return false;
     }
-    const payload = token.split('.')[1];
-    const decoded = JSON.parse(atob(payload));
-    return decoded.exp < Date.now() / 1000;
   }
 
   getToken(): string {
     // TODO: return the token
     const loggeduser = localStorage.getItem('id_token') || '';
-    return loggeduser;
+    return loggeduser ? loggeduser : '';
   }
 
   login(idToken: string) {

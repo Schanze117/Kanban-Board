@@ -14,8 +14,10 @@ export const getAllTickets = async (_req: Request, res: Response) => {
         },
       ],
     });
+    console.log(tickets);
     res.json(tickets);
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({ message: error.message });
   }
 };

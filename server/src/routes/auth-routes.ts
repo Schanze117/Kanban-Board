@@ -10,19 +10,21 @@ export const login = async (req: Request, res: Response) => {
   const user = await User.findOne({ 
     where: { username } });
   if (!user) {
-    return res.status(401).json({ message: 'Invalid Login' });
+    return res.status(404).json({ message: 'User Not Found' });
   }
   // Check if the password is correct
   const passwordisValid = await bcrypt.compare(password, user.password);
   if (!passwordisValid) {
-    return res.status(401).json({ message: 'Invalid Login' });
+    return res.status(401).json({ message: 'Invalid password' });
   }
 
 const secretKey = process.env.JWT_SECRET_Key || '';
 
   // Create a JWT token
   const token = jwt.sign({ username }, secretKey, { expiresIn: '1h'});
-  return res.json({ token });
+  return res.status(200).json({ 
+    message: 'Login successful',
+    token: token });
 };
 
 const router = Router();
