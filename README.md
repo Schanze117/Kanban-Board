@@ -52,7 +52,7 @@ This is a message board that helps teams visualize work, collaborate on work in 
       
   Here is a link to the deployed application on Render!
   
-  [https://drive.google.com/file/d/1s9AJdhUIs1HVhNY2MMi2ySAxnTVUdRIW/view?usp=drive_link](https://candidatesearch-1-skuq.onrender.com/)](https://kanban-board-q3qp.onrender.com)
+  (https://kanban-board-q3qp.onrender.com)
   
   ## Credits
   
