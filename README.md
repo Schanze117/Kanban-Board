@@ -49,6 +49,8 @@ This is a message board that helps teams visualize work, collaborate on work in 
   ## Usage
   
   This application is intended to access a Kanban Board associated with a coding project to stay up to date on tasks and exchange thoughts and ideas in a secure space.
+
+  Login in with the username: JollyGuru and the password: password
       
   Here is a link to the deployed application on Render!
   
